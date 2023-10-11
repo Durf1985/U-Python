@@ -1,0 +1,29 @@
+---
+hosts: stapp01
+become: true
+tasks:
+  - name: Replace old hostname with new hostname (requires Ansible >= 2.4)
+  ansible.builtin.replace:
+    path: /opt/sysops/blog.txt
+    regexp: '(\s+)old\.host\.name(\s+.*)?$'
+    replace: '\1new.host.name\2'
+
+---
+hosts: stapp02
+become: true
+tasks:
+  - name: Replace old hostname with new hostname (requires Ansible >= 2.4)
+  ansible.builtin.replace:
+    path: /opt/sysops/story.txt
+    regexp: '(\s+)old\.host\.name(\s+.*)?$'
+    replace: '\1new.host.name\2'
+
+---
+hosts: stapp03
+become: true
+tasks:
+  - name: Replace old hostname with new hostname (requires Ansible >= 2.4)
+  ansible.builtin.replace:
+    path: /opt/sysops/media.txt
+    regexp: '(\s+)old\.host\.name(\s+.*)?$'
+    replace: '\1new.host.name\2's
